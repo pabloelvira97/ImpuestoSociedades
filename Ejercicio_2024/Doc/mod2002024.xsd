@@ -1,0 +1,1882 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+	<!--
+		ABREVIATURAS: Rendimiento(s) -> Rdto(s) Retribuciones -> Retrib
+		Contribuyente -> Ctye Numero -> Num Importe -> Imp
+	-->
+	<!--DECLARACIONES GENERICAS -->
+
+	<xs:simpleType name="tipo_Porcentaje">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.01"/>
+			<xs:maxInclusive value="100.00"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_ImpPositivo">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.01"/>
+			<xs:maxInclusive value="9999999999999.99"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_ImpNegativo">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="-9999999999999.99"/>
+			<xs:maxInclusive value="9999999999999.99"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_vacio">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="tipo_Pagina03">
+		<xs:sequence>
+			<xs:element name="T00103" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00104" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00105" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00106" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00107" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00108" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00700" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00109" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00110" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00111" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				AP -->
+			<xs:element name="T00112" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00113" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00114" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00115" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				AP -->
+			<xs:element name="T00116" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00117" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00119" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00120" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00121" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00122" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00123" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00124" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00125" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00127" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00128" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00129" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00130" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00131" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00132" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00133" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00134" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00135" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00137" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00138" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				AP -->
+			<xs:element name="T00139" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00140" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00141" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00142" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00143" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00144" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00145" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00146" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00147" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00148" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00701" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina04">
+		<xs:sequence>
+			<xs:element name="T00151" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00152" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00153" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00154" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00155" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00156" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00157" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00158" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00159" type="tipo_ImpNegativo" minOccurs="0"/>
+			
+			<xs:element name="T00161" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00162" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00163" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00164" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00165" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00166" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00167" type="tipo_ImpNegativo" minOccurs="0"/>
+			
+			<xs:element name="T00169" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00170" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00171" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00172" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00173" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00174" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00175" type="tipo_ImpNegativo" minOccurs="0"/>
+			
+			<xs:element name="T00176" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00177" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				AP -->
+			<xs:element name="T00178" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00179" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!--<xs:element name="T00180" type="tipo_ImpNegativo" minOccurs="0"/>-->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina05">
+		<xs:sequence>
+			<xs:element name="T00188" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00189" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00764" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00765" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00190" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				AP -->
+			<xs:element name="T00192" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00193" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00702" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T01001" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T01002" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00712" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00766" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00767" type="tipo_ImpNegativo" minOccurs="0"/>
+			
+			<xs:element name="T00194" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00195" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				AP -->
+			<xs:element name="T00196" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00197" type="tipo_ImpNegativo" minOccurs="0"/>
+			
+			<xs:element name="T00198" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00199" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00200" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00768" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00769" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00201" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00202" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				A -->
+			<xs:element name="T00203" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00204" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00205" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00206" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00207" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00208" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				P -->
+			<xs:element name="T00209" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00780" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00782" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00783" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00784" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00211" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				AP -->
+			<xs:element name="T00212" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00213" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00214" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00215" type="tipo_ImpNegativo" minOccurs="0"/>
+			
+			<xs:element name="T00217" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00218" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00219" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00220" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00221" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00222" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				AP -->
+			<xs:element name="T00223" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00224" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00225" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00226" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00227" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina06">
+		<xs:sequence>
+			<xs:element name="T00785" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00787" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00788" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00789" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00229" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00230" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00703" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00704" type="tipo_ImpNegativo" minOccurs="0"/>
+			
+			<xs:element name="T00232" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00233" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00234" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00235" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00236" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00237" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				AP -->
+			<xs:element name="T00238" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00241" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00242" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00243" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00244" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00245" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00246" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00247" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00248" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00249" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				AP -->
+			<xs:element name="T00250" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00251" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina07">
+		<xs:sequence>
+			<xs:element name="T00255" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00256" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00257" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00711" type="tipo_ImpNegativo" minOccurs="0"/>
+
+			<xs:element name="T00706" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00707" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00708" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00258" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00259" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				AP -->
+			<xs:element name="T00760" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00761" type="tipo_ImpNegativo" minOccurs="0"/>
+
+			<xs:element name="T00762" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00763" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00771" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00772" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00263" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00264" type="tipo_ImpNegativo" minOccurs="0"/>
+			
+			<xs:element name="T00267" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00268" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00269" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00271" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00790" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00273" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00274" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00275" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00276" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00277" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00278" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				AP -->
+			<xs:element name="T00253" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00254" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00281" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00282" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00283" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00709" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00284" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00285" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00286" type="tipo_ImpNegativo" minOccurs="0"/>
+
+			<xs:element name="T00289" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00290" type="tipo_ImpNegativo" minOccurs="0"/>
+
+			<xs:element name="T00292" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00293" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00710" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00792" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00793" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00294" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00295" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina08">
+		<xs:sequence>
+			<xs:element name="T00299" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00300" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00302" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00303" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00794" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00304" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00306" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00307" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00308" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00796" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00309" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				AP -->
+			<xs:element name="T00310" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00311" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00312" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00314" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00315" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00316" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00317" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00318" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00319" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00320" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00321" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00322" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00323" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00330" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00331" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00332" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00326" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00328" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina09">
+		<xs:sequence>
+			<xs:element name="T00336" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				A -->
+			<xs:element name="T00337" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00338" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00339" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00340" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00341" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00342" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00343" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00344" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00346" type="tipo_ImpNegativo" minOccurs="0"/>
+			<!-- 
+				A -->
+			<xs:element name="T00347" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00348" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00349" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00350" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00351" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00352" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00353" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina10">
+		<xs:sequence>
+			<xs:element name="T00380" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00381" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00382" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00383" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00384" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00385" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00386" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00394" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00395" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00396" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00397" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00398" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00399" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00400" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00408" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00409" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00410" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00411" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00412" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00413" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00414" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00436" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00437" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00438" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00439" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00440" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00441" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00442" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00450" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00451" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00452" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00453" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00454" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00455" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00456" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00478" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00479" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00480" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00481" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00482" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00483" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00484" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00492" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00493" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00494" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00495" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00496" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00497" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00498" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00520" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00521" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00522" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00523" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00524" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00525" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00526" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00534" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00535" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00536" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00537" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00538" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00539" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00540" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00548" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00549" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00550" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00551" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00552" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00553" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00554" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00562" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00563" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00564" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00565" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00566" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00567" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00568" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00576" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00577" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00578" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00579" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00580" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00581" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00582" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00590" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00591" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00592" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00593" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00594" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00595" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00596" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00604" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00605" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00606" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00607" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00608" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00609" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00610" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00618" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00619" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00620" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00621" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00622" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00623" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00624" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00715" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00716" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00717" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00718" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00719" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00720" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00721" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00729" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00730" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00731" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00732" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00733" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00734" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00735" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina11">
+		<xs:sequence>
+			<xs:element name="T00387" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00388" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00389" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00390" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00391" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00392" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00401" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00402" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00403" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00404" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00405" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00406" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00415" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00416" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00417" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00418" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00419" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00420" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00443" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00444" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00445" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00446" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00448" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00457" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00458" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00461" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00462" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00485" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00486" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00489" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00490" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00499" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00502" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00503" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00504" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00527" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00528" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00529" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00530" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00531" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00532" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00541" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00542" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00543" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00544" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00545" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00546" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00555" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00556" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00557" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00558" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00560" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00569" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00570" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00571" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00572" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00574" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00583" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00584" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00585" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00586" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00588" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00597" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00598" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00599" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00600" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00602" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00611" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00612" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00613" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00614" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00615" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00616" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00625" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00626" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00627" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00628" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00629" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00630" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00722" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00723" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00724" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00725" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00726" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00727" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00736" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00737" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00738" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00739" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00740" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00741" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina27">
+		<xs:sequence>
+			<xs:element name="T00101" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00103" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00104" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00105" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00107" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00108" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00109" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00750" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02132" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02133" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02135" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02136" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02137" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02138" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00112" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00114" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00115" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00116" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00751" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02140" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02141" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02143" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02144" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02145" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02146" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02148" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02150" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02151" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02152" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02153" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00127" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00128" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00130" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00131" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00132" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00135" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00136" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00137" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00138" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00139" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00755" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00141" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00142" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00144" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00145" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00147" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00148" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00149" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00150" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina28">
+		<xs:sequence>
+			<xs:element name="T00153" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00154" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00156" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00157" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00158" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00159" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00160" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00163" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00164" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00165" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00166" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00167" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00756" type="tipo_ImpNegativo" minOccurs="0"/>
+			
+			<xs:element name="T00170" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00171" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00172" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00173" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00174" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00757" type="tipo_ImpNegativo" minOccurs="0"/>
+			
+			<xs:element name="T00175" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00176" type="tipo_ImpNegativo" minOccurs="0"/>
+			
+			<xs:element name="T00178" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00179" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00180" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00181" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00182" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00184" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00185" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00186" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00187" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00188" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00189" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina29">
+		<xs:sequence>
+			<xs:element name="T00193" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00194" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00758" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00195" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00197" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00198" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00199" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00200" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00201" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00202" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00762" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00763" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00764" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00203" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00204" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00205" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00208" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00209" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02154" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02156" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02157" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02158" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00212" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00213" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00214" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02159" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02160" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00218" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00759" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00760" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00761" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02161" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina30">
+		<xs:sequence>
+			<xs:element name="T00221" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00222" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00223" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00225" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00226" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00227" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00228" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00229" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02162" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00230" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00231" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00232" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00233" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00234" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00235" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00238" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00239" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00240" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00241" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00243" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00244" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00248" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00249" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00250" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00251" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00252" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00253" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00255" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00256" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00258" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00260" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina31">
+		<xs:sequence>
+			<xs:element name="T00265" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00266" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02163" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02165" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02166" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02167" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00268" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00271" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00272" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00273" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00275" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00276" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00277" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00279" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00280" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00281" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00282" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02169" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02170" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02171" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02173" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02174" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T02175" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00284" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00285" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00286" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00288" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00289" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00290" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00291" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina32">
+		<xs:sequence>
+			<xs:element name="T00293" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00294" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00295" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00296" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00297" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00298" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00305" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00306" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00307" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00308" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00309" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00310" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00317" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00318" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00319" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00320" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00321" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00322" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00329" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00330" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00331" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00332" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00333" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00334" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00345" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00346" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00353" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00354" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00355" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00356" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00357" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00358" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00365" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00366" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00369" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00370" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00377" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00378" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00379" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00381" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00382" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00391" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00393" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00394" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00403" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00405" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00406" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00413" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00414" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00415" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00416" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00417" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00425" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00426" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00429" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00430" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00437" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00438" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00439" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00440" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00441" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00442" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00453" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00454" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00465" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00466" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00473" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00474" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00475" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00476" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00485" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00486" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00487" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00488" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00499" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00501" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00502" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00504" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00509" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00510" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00511" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00512" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00513" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00514" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00521" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00522" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00524" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00535" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00536" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00537" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00538" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00549" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina33">
+		<xs:sequence>
+			<xs:element name="T00299" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00300" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00301" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00302" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00303" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00311" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00312" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00313" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00314" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00315" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00323" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00324" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00325" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00326" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00327" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00335" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00336" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00337" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00338" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00339" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00347" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00349" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00351" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00359" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00360" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00361" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00362" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00363" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00371" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00383" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00395" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00407" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00419" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00420" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00431" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00432" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00433" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00443" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00444" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00446" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00455" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00456" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00467" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00468" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00503" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00505" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00506" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00507" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00515" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00516" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00519" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00528" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00539" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00540" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00541" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00542" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00543" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00551" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina34">
+		<xs:sequence>
+			<xs:element name="T00101" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00103" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00104" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00105" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00106" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00108" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00109" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00110" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00111" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00112" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00114" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00115" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00116" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00117" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00119" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00121" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00122" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00123" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00124" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00125" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00127" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00128" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00129" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00130" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00131" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00133" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00134" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00135" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00136" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00138" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00139" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00140" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00141" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00143" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00144" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00146" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00147" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00148" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00150" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00151" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00152" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina35">
+		<xs:sequence>
+			<xs:element name="T00154" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00155" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00157" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00158" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00159" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00160" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00161" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina36">
+		<xs:sequence>
+			<xs:element name="T00163" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00164" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00166" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00167" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00169" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00170" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00171" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00172" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00173" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00174" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00175" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00176" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00178" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00179" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00180" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00181" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00183" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00184" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00186" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00187" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00188" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00189" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00190" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00191" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00192" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00194" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00195" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00196" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00197" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00199" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00200" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00202" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00203" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00204" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00205" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00206" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina37">
+		<xs:sequence>
+			<xs:element name="T00210" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00211" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00212" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00382" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T01001" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T01002" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00214" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00215" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00216" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00217" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00219" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00220" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00221" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00222" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00223" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00224" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00226" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00227" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00228" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00229" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00230" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00231" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina38">
+		<xs:sequence>
+			<xs:element name="T00236" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00237" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00238" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00239" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00241" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00242" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00243" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00245" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00246" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00248" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00249" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00251" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00252" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00253" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00256" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00257" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00258" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00260" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00261" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00262" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00263" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00264" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00266" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00267" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00269" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00270" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00271" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00273" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00274" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00275" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00276" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00279" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00280" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00282" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00283" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00284" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00286" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00287" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina39">
+		<xs:sequence>
+			<xs:element name="T00291" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00292" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00293" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00294" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00296" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00297" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00298" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00300" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00301" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00303" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00304" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00306" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00307" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00308" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00309" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00312" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00313" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00314" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00316" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00317" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00318" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00319" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00322" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00323" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00324" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00325" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00326" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00328" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00329" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00331" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00332" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00333" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina40">
+		<xs:sequence>
+			<xs:element name="T00335" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00336" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00337" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00340" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00341" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00343" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00344" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00345" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00347" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00348" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00349" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00352" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00353" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00355" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00356" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00358" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00359" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00362" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00363" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00365" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00366" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00367" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00369" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00370" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00372" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00373" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00375" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00376" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00379" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00381" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina41">
+		<xs:sequence>
+			<xs:element name="T00385" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00386" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00387" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00389" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00390" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00391" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00392" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00394" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00395" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00396" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00398" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00399" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00400" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00402" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00403" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00404" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00406" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00407" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00408" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00409" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00410" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00411" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina42">
+		<xs:sequence>
+			<xs:element name="T00413" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00414" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00415" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00416" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00417" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00418" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00419" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00426" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00427" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00428" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00429" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00430" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00431" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00432" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00439" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00440" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00441" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00442" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00443" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00444" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00445" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00465" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00466" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00467" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00468" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00469" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00470" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00471" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00491" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00492" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00493" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00494" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00495" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00496" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00497" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00504" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00505" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00506" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00507" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00508" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00509" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00510" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00517" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00518" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00519" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00520" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00521" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00522" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00523" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00530" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00531" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00532" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00533" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00534" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00535" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00536" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00543" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00544" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00545" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00546" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00547" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00548" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00549" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00556" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00557" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00558" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00559" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00560" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00561" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00562" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00569" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00570" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00571" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00572" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00573" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00574" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00575" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00595" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00596" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00597" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00598" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00599" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00600" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00601" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00608" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00609" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00610" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00611" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00612" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00613" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00614" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00621" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00622" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00623" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00624" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00625" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00626" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00627" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina43">
+		<xs:sequence>
+			<xs:element name="T00420" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00421" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00422" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00423" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00424" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00433" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00434" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00435" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00436" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00437" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00446" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00447" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00448" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00449" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00450" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00472" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00473" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00474" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00475" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00476" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00498" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00499" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00382" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00501" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00502" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00511" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00512" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00513" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00514" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00515" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00524" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00525" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00526" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00527" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00528" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00537" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00538" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00539" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00540" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00541" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00550" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00551" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00552" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00553" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00554" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00563" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00564" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00565" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00566" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00567" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00576" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00577" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00578" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00579" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00580" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00602" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00603" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00604" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00605" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00606" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00615" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00616" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00617" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00618" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00619" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00628" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00629" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00630" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00631" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00632" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina44">
+		<xs:sequence>
+			<xs:element name="T00102" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00104" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00105" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00108" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00109" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00110" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00111" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00112" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00113" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00114" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00115" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00116" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00118" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00119" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00120" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00122" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00123" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00124" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00126" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00127" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00128" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00129" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00130" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00131" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00133" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00134" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00135" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00136" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00137" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00138" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00139" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00140" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00141" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00142" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00143" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00144" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00145" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00146" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00147" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00148" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00149" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00150" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina45">
+		<xs:sequence>
+			<xs:element name="T00154" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00155" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00156" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00157" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00243" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T01001" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T01002" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00805" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00158" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00159" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00160" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00161" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00162" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00163" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00165" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00166" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00167" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00169" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00170" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00171" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00173" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00174" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00175" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00176" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00177" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00178" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00181" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00182" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00183" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00184" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00185" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00186" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00187" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00188" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00190" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00191" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00192" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00193" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00194" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00195" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00196" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00197" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00198" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00199" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00200" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00201" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina46">
+		<xs:sequence>
+			<xs:element name="T00204" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00205" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00206" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00207" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00209" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00210" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00211" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00212" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00213" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00215" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00216" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00218" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00219" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00220" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00221" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00222" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00223" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00224" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00226" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00227" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00228" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00229" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00230" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00231" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00232" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00233" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00234" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00235" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00236" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00237" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00238" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00239" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00242" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina47">
+		<xs:sequence>
+			<xs:element name="T00244" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00246" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00247" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00248" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00249" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00250" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00253" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00254" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00255" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00257" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00258" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00259" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00260" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00261" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00262" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00263" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00264" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00265" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00266" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00267" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00268" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00271" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00272" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00273" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00275" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00276" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00277" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00278" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00280" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00281" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00282" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00283" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00284" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00285" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00286" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00287" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00288" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00289" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00290" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00291" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00292" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00293" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina48">
+		<xs:sequence>
+			<xs:element name="T00295" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00297" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00298" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00299" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00300" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00301" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00302" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina49">
+		<xs:sequence>
+			<xs:element name="T00101" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00103" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00104" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00105" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00106" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00107" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00108" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00110" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00111" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00112" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00113" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00114" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00115" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00116" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00117" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00119" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00120" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00121" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00122" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00123" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00125" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00126" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00130" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00131" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00133" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00134" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00135" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00136" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00137" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00138" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00139" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00140" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00142" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00143" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00145" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00146" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00147" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00148" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00149" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00150" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina50">
+		<xs:sequence>
+			<xs:element name="T00154" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00155" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00156" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00157" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00194" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T01001" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T01002" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00805" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00159" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00160" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00162" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00163" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00164" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina51">
+		<xs:sequence>
+			<xs:element name="T00167" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00168" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00169" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00171" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00172" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00173" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00174" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00175" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00176" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00177" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00178" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00179" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00180" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00181" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00184" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00185" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00186" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00187" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00188" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00189" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00190" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00193" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina52">
+		<xs:sequence>
+			<xs:element name="T00196" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00197" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00198" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00199" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00202" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00203" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00204" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00205" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina53">
+		<xs:sequence>
+			<xs:element name="T00208" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00209" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00210" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00211" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00212" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00217" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00218" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00219" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00220" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00221" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00226" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00227" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00228" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00229" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00230" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00244" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00245" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00246" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00247" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00248" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00262" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00263" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00264" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00265" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00266" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00271" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00272" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00273" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00274" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00275" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00280" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00281" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00282" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00283" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00284" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00289" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00290" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00291" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00292" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00293" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00298" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00299" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00300" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00301" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00302" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Pagina54">
+		<xs:sequence>
+			<xs:element name="T00213" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00214" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00215" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00222" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00223" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00224" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00231" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00232" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00233" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00249" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00250" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00251" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00267" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00268" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00269" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00276" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00277" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00278" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00285" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00286" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00287" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00294" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00295" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00296" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00303" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00304" type="tipo_ImpNegativo" minOccurs="0"/>
+			<xs:element name="T00305" type="tipo_ImpNegativo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_BalanceNormal">
+		<xs:sequence>
+			<xs:element name="Pagina03" type="tipo_Pagina03" minOccurs="0"/>
+			<xs:element name="Pagina04" type="tipo_Pagina04" minOccurs="0"/>
+			<xs:element name="Pagina05" type="tipo_Pagina05" minOccurs="0"/>
+			<xs:element name="Pagina06" type="tipo_Pagina06" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_CuentaNormal">
+		<xs:sequence>
+			<xs:element name="Pagina07" type="tipo_Pagina07" minOccurs="0"/>
+			<xs:element name="Pagina08" type="tipo_Pagina08" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_CambiosPN">
+		<xs:sequence>
+			<xs:element name="Pagina09" type="tipo_Pagina09" minOccurs="0"/>
+			<xs:element name="Pagina10" type="tipo_Pagina10" minOccurs="0"/>
+			<xs:element name="Pagina11" type="tipo_Pagina11" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_BalanceBancos">
+		<xs:sequence>
+			<xs:element name="Pagina27" type="tipo_Pagina27" minOccurs="0"/>
+			<xs:element name="Pagina28" type="tipo_Pagina28" minOccurs="0"/>
+			<xs:element name="Pagina29" type="tipo_Pagina29" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_CuentaBancos">
+		<xs:sequence>
+			<xs:element name="Pagina30" type="tipo_Pagina30" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_CambiosPN_Bancos">
+		<xs:sequence>
+			<xs:element name="Pagina31" type="tipo_Pagina31" minOccurs="0"/>
+			<xs:element name="Pagina32" type="tipo_Pagina32" minOccurs="0"/>
+			<xs:element name="Pagina33" type="tipo_Pagina33" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_BalanceAseguradora">
+		<xs:sequence>
+			<xs:element name="Pagina34" type="tipo_Pagina34" minOccurs="0"/>
+			<xs:element name="Pagina35" type="tipo_Pagina35" minOccurs="0"/>
+			<xs:element name="Pagina36" type="tipo_Pagina36" minOccurs="0"/>
+			<xs:element name="Pagina37" type="tipo_Pagina37" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_CuentaAseguradora">
+		<xs:sequence>
+			<xs:element name="Pagina38" type="tipo_Pagina38" minOccurs="0"/>
+			<xs:element name="Pagina39" type="tipo_Pagina39" minOccurs="0"/>
+			<xs:element name="Pagina40" type="tipo_Pagina40" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_CambiosPP_Aseguradora">
+		<xs:sequence>
+			<xs:element name="Pagina41" type="tipo_Pagina41" minOccurs="0"/>
+			<xs:element name="Pagina42" type="tipo_Pagina42" minOccurs="0"/>
+			<xs:element name="Pagina43" type="tipo_Pagina43" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Balance">
+		<xs:sequence>
+			<xs:element name="Pagina44" type="tipo_Pagina44" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_PatrimonioCuentas">
+		<xs:sequence>
+			<xs:element name="Pagina45" type="tipo_Pagina45" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_CuentaPyG">
+		<xs:sequence>
+			<xs:element name="Pagina46" type="tipo_Pagina46" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_VariacionPatrimonial">
+		<xs:sequence>
+			<xs:element name="Pagina47" type="tipo_Pagina47" minOccurs="0"/>
+			<xs:element name="Pagina48" type="tipo_Pagina48" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_BalanceGarantia">
+		<xs:sequence>
+			<xs:element name="Pagina49" type="tipo_Pagina49" minOccurs="0"/>
+			<xs:element name="Pagina50" type="tipo_Pagina50" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_CuentaGarantia">
+		<xs:sequence>
+			<xs:element name="Pagina51" type="tipo_Pagina51" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_IngresosPerdidas">
+		<xs:sequence>
+			<xs:element name="Pagina52" type="tipo_Pagina52" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_CambiosPN_Garantia">
+		<xs:sequence>
+			<xs:element name="Pagina53" type="tipo_Pagina53" minOccurs="0"/>
+			<xs:element name="Pagina54" type="tipo_Pagina54" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Normal">
+		<xs:sequence>
+			<xs:element name="Balance" type="tipo_BalanceNormal" minOccurs="0"/>
+			<xs:element name="CuentaPyG" type="tipo_CuentaNormal" minOccurs="0"/>
+			<xs:element name="CambiosPN" type="tipo_CambiosPN" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_BancoEspana">
+		<xs:sequence>
+			<xs:element name="Balance" type="tipo_BalanceBancos" minOccurs="0"/>
+			<xs:element name="CuentaPyG" type="tipo_CuentaBancos" minOccurs="0"/>
+			<xs:element name="CambiosPN" type="tipo_CambiosPN_Bancos" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_Seguros">
+		<xs:sequence>
+			<xs:element name="Balance" type="tipo_BalanceAseguradora" minOccurs="0"/>
+			<xs:element name="CuentaPyG" type="tipo_CuentaAseguradora" minOccurs="0"/>
+			<xs:element name="CambiosPP" type="tipo_CambiosPP_Aseguradora" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_InstitucionesInversionColectivo">
+		<xs:sequence>
+			<xs:element name="Balance" type="tipo_Balance" minOccurs="0"/>
+			<xs:element name="PatrimonioCuentas" type="tipo_PatrimonioCuentas" minOccurs="0"/>
+			<xs:element name="CuentaPyG" type="tipo_CuentaPyG" minOccurs="0"/>
+			<xs:element name="VariacionPatrimonial" type="tipo_VariacionPatrimonial" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tipo_SociedadGarantia">
+		<xs:sequence>
+			<xs:element name="Balance" type="tipo_BalanceGarantia" minOccurs="0"/>
+			<xs:element name="CuentaPyG" type="tipo_CuentaGarantia" minOccurs="0"/>
+			<xs:element name="IngresosPerdidas" type="tipo_IngresosPerdidas" minOccurs="0"/>
+			<xs:element name="CambiosPN" type="tipo_CambiosPN_Garantia" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MOD2002024">
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="Normal" type="tipo_Normal"/>
+				<xs:element name="BancoEspana" type="tipo_BancoEspana"/>
+				<xs:element name="Seguros" type="tipo_Seguros"/>
+				<xs:element name="SociedadGarantia" type="tipo_SociedadGarantia"/>
+				<xs:element name="InstitucionesInversionColectiva" type="tipo_InstitucionesInversionColectivo"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
