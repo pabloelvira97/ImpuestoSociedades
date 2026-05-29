@@ -38,15 +38,16 @@
  */
 
 using System.Xml;
-using System.Xml.Serialization;
 
 namespace ImpuestoSociedades
 {
+
     /// <summary>
     /// Clase encargada de serializar un xml con la información contable.
     /// </summary>
     public class Xml
     {
+
         #region Métodos Estáticos
 
         /// <summary>
@@ -92,5 +93,7 @@ namespace ImpuestoSociedades
         }
 
         #endregion
+
     }
+
 }

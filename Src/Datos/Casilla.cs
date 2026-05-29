@@ -39,11 +39,13 @@
 
 namespace ImpuestoSociedades
 {
+
     /// <summary>
     /// Representa una casilla de un determinado informe contable
     /// </summary>
     public class Casilla
     {
+
         #region Propiedades Públicas de Instancia
 
         /// <summary>
@@ -74,4 +76,5 @@ namespace ImpuestoSociedades
         #endregion
 
     }
+
 }

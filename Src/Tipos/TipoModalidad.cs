@@ -40,11 +40,13 @@
 
 namespace ImpuestoSociedades
 {
+
     /// <summary>
     /// Tipología del modelo contable que se va a incluir en el modelo.
     /// </summary>
     public enum TipoModalidad
     {
+
         /// <summary>
         /// Modalidad normal.
         /// Se aplica cuando durante dos ejercicios consecutivos se supera al menos dos de los siguientes límites:
@@ -67,5 +69,7 @@ namespace ImpuestoSociedades
         /// Activo ≤ 4.000.000 €, cifra de negocios ≤ 8.000.000 € y plantilla media ≤ 50 empleados.
         /// </summary>
         Abreviado
+
     }
+
 }

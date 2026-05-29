@@ -36,15 +36,15 @@
     For more information, please contact Irene Solutions SL. at this
     address: info@irenesolutions.com
  */
-using ImpuestoSociedades.Src;
-
 namespace ImpuestoSociedades
 {
+
     /// <summary>
     /// Relación existente ente las cuentas del Plan General Contable y las casillas de los diferentes modelos contables del modelo 200.
     /// </summary>
     public abstract class Mapa
     {
+
         #region Propiedades Públicas de Instancia
 
         /// <summary>
@@ -86,5 +86,7 @@ namespace ImpuestoSociedades
         }
 
         #endregion
+
     }
+
 }

@@ -36,8 +36,6 @@
     For more information, please contact Irene Solutions SL. at this
     address: info@irenesolutions.com
  */
-using ImpuestoSociedades.Src;
-
 namespace ImpuestoSociedades.Ejercicio_2024.Mapas.Pymes
 {
     /// <summary>

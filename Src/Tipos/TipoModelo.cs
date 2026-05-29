@@ -39,11 +39,13 @@
 
 namespace ImpuestoSociedades
 {
+
     /// <summary>
     /// Modelo contable que se va a incluir en el impuesto.
     /// </summary>
     public enum TipoModelo
     {
+
         /// <summary>
         /// Balance de Situación
         /// </summary>
@@ -57,6 +59,8 @@ namespace ImpuestoSociedades
         /// <summary>
         /// Estado de Cambios en el Patrimonio Neto
         /// </summary>
-        ECPN,
+        ECPN
+
     }
+
 }

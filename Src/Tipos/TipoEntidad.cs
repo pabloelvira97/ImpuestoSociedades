@@ -39,6 +39,7 @@
 
 namespace ImpuestoSociedades
 {
+
     /// <summary>
     /// Tipo de organización a efectos del impuesto de sociedades de la sociedad que presenta el modelo.
     /// </summary>
@@ -68,5 +69,7 @@ namespace ImpuestoSociedades
         /// Sociedades y fondos de inversión colectiva
         /// </summary>
         InstitucionesInversionColectiva
+
     }
+
 }

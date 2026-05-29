@@ -41,11 +41,13 @@ using System.Xml;
 
 namespace ImpuestoSociedades
 {
+
     /// <summary>
     /// Representa la presentación del Impuesto sobre Sociedades.
     /// </summary>
     public abstract class Mod200
     {
+
         #region Propiedades Públicas de Instancia
 
         /// <summary>
@@ -119,6 +121,7 @@ namespace ImpuestoSociedades
         }
 
         #endregion
-    }
-}
 
+    }
+
+}

@@ -39,11 +39,13 @@
 
 namespace ImpuestoSociedades
 {
+
     /// <summary>
     /// Representa una página de un informe contable
     /// </summary>
     public class Pagina
     {
+
         #region Propiedades Públicas de Instancia
 
         /// <summary>
@@ -87,5 +89,7 @@ namespace ImpuestoSociedades
         }
 
         #endregion
+
     }
+
 }

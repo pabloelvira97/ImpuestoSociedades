@@ -37,8 +37,6 @@
     address: info@irenesolutions.com
  */
 
-using ImpuestoSociedades.Src;
-
 namespace ImpuestoSociedades
 {
     public class ModeloContable
@@ -174,5 +172,7 @@ namespace ImpuestoSociedades
         }
 
         #endregion
+
     }
+
 }
