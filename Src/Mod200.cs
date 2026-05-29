@@ -39,7 +39,7 @@
 
 using System.Xml;
 
-namespace ImpuestoSociedades.Src
+namespace ImpuestoSociedades
 {
     /// <summary>
     /// Representa la presentación del Impuesto sobre Sociedades.

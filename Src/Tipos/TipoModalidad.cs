@@ -38,7 +38,7 @@
     address: info@irenesolutions.com
  */
 
-namespace ImpuestoSociedades.Src
+namespace ImpuestoSociedades
 {
     /// <summary>
     /// Tipología del modelo contable que se va a incluir en el modelo.

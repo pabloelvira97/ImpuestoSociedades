@@ -37,7 +37,7 @@
     address: info@irenesolutions.com
  */
 
-namespace ImpuestoSociedades.Src
+namespace ImpuestoSociedades
 {
     /// <summary>
     /// Tipo de organización a efectos del impuesto de sociedades de la sociedad que presenta el modelo.

@@ -37,7 +37,7 @@
     address: info@irenesolutions.com
  */
 
-namespace ImpuestoSociedades.Src
+namespace ImpuestoSociedades
 {
     /// <summary>
     /// Representa una casilla de un determinado informe contable

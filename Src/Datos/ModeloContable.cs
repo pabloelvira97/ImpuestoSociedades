@@ -39,7 +39,7 @@
 
 using ImpuestoSociedades.Src;
 
-namespace ImpuestoSociedades.Src
+namespace ImpuestoSociedades
 {
     public class ModeloContable
     {

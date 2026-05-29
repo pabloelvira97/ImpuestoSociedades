@@ -40,7 +40,7 @@
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace ImpuestoSociedades.Src
+namespace ImpuestoSociedades
 {
     /// <summary>
     /// Clase encargada de serializar un xml con la información contable.
