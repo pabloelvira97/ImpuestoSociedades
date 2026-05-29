@@ -1,6 +1,6 @@
 ﻿/*
     This file is part of the DepositoDigital (R) project.
-    Copyright (c) 2017-2018 Irene Solutions SL
+    Copyright (c) 2026 Irene Solutions SL
     Authors: Irene Solutions SL.
 
     This program is free software; you can redistribute it and/or modify
